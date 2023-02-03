@@ -1,0 +1,159 @@
+api version: v1
+kind: pod
+metadata:
+  name: frontend
+  labels:
+    component: frontend
+spec:
+  containers:
+    - name: frontend
+      image: frontend
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+  type: LoadBalancer
+
+---
+api version: v1
+kind: pod
+metadata:
+  name: catalogue
+  labels:
+    component: catalogue
+spec:
+  containers:
+    - name: catalogue
+      image: catalogue
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+spec:
+  selector:
+    app: catalogue
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+  type: ClusterIP
+---
+api version: v1
+kind: pod
+metadata:
+  name: cart
+  labels:
+    component: cart
+spec:
+  containers:
+    - name: cart
+      image: cart
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart
+spec:
+  selector:
+    app: cart
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+  type: ClusterIP
+---
+api version: v1
+kind: pod
+metadata:
+  name: user
+  labels:
+    component: user
+spec:
+  containers:
+    - name: user
+      image: user
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+spec:
+  selector:
+    component: user
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+  type: ClusterIP
+
+---
+
+api version: v1
+kind: pod
+metadata:
+  name: payemnt
+  labels:
+    component: payment
+spec:
+  containers:
+    - name: payment
+      image: payment
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+spec:
+  selector:
+    component: payment
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+  type: ClusterIP
+
+---
+api version: v1
+kind: pod
+metadata:
+  name: shipping
+  labels:
+    component: shipping
+spec:
+  containers:
+    - name: shipping
+      image: shipping
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+spec:
+  selector:
+    component: shipping
+  ports:
+    - protocol: TCP
+      port: TCP
+      targetPort: 80
+      port: 80
+
